@@ -1,43 +1,98 @@
-// Assignment Code //
-
+// Assignment Code
 let generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  var uppercaseChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-  var lowercaseChar = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-  var numbersChar = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ]
-  var symoblsChar = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '-', '=', '+', '`', '~', '<', '>', '/', '?', ':', ';']
+  let w = prompt('Please select a number between 12 and 128.')
+  if (w >= 12 || w <= 128) {
+    alert(w)
 
+  } else alert('try again, I need that number between 12 and 128.')
 
-  while (ture) {
-
-    let selectPasswordLength =
-      confirm("Please select a password length btween 12 to 128 characters long.")
-
-    let useUppercaseChar =
-      confirm("Would you like your password to include upper case letters?")
-
-    let useLowerCaseChar =
-      confirm("Would you like your password to include lower case letters?")
-
-    let useNumbersChar =
-      confirm("Would you like your password to include numbers?")
-
-    let useSymbolsChar =
-      confirm("Would you like your password to include symbols?")
-
-  }
-  if ("none selected")
-    alert("Invalid choice made. Please try agian.") {
-      break
+  length = w
+  lower = 'abcdefghijklmnopqrstuvwxyz'
+  upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  number = '0123456789'
+  sym = '!@#$%^&*()'
+  pass = "";
+  let upperC = confirm('do you want upper characters?')
+  let lowerC = confirm('Do you want lower characters?')
+  let numberC = confirm('do you want numbers?')
+  let symC = confirm('do you want symbols?')
+  if (upperC && lowerC && numberC && symC) {
+    for (i = 0; i < length / 4; i++) {
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length)) + number.charAt(Math.floor(Math.random() * number.length)) + sym.charAt(Math.floor(Math.random() * sym.length))
     }
+    return pass
+  } else if (lowerC && upperC && symC) {
+    for (i = 0; i < length / 3; i++) {
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length)) + sym.charAt(Math.floor(Math.random() * sym.length))
+    }
+    return pass
+  } else if (upperC && symC && numberC) {
+    for (i = 0; i < length / 3; i++) {
+      pass += upper.charAt(Math.floor(Math.random() * upper.length)) + sym.charAt(Math.floor(Math.random() * sym.length)) + number.charAt(Math.floor(Math.random() * number.length))
+    }
+    return pass
+  } else if (lowerC && symC && numberC) {
+    for (i = 0; i < length / 3; i++) {
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + sym.charAt(Math.floor(Math.random() * sym.length)) + number.charAt(Math.floor(Math.random() * number.length))
+    }
+    return pass
+  } else if (lowerC && upperC && numberC) {
+    for (i = 0; i < length / 3; i++) {
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length)) + number.charAt(Math.floor(Math.random() * number.length))
+    }
+    return pass
+  } else if (upperC && symC) {
+    for (i = 0; i < length / 2; i++) {
+      pass += upper.charAt(Math.floor(Math.random() * upper.length)) + sym.charAt(Math.floor(Math.random() * sym.length))
+    }
+    return pass
+  } else if (symC && numberC) {
+    for (i = 0; i < length / 2; i++) {
+      pass += sym.charAt(Math.floor(Math.random() * sym.length)) + number.charAt(Math.floor(Math.random() * number.length))
+    }
+    return pass
+  } else if (lowerC && numberC) {
+    for (i = 0; i < length / 2; i++) {
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + number.charAt(Math.floor(Math.random() * number.length))
+    }
+    return pass
+  } else if (lowerC && upperC) {
+    for (i = 0; i < length / 2; i++) {
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length))
+    }
+    return pass
+  } else if (upperC) {
+    for (i = 0; i < length; i++) {
+      pass += upper.charAt(Math.floor(Math.random() * upper.length))
+    }
+    return pass
+  } else if (lowerC) {
+    for (i = 0; i < length; i++) {
+      pass += lower.charAt(Math.floor(Math.random() * lower.length))
+    }
+    return pass
+  } else if (symC) {
+    for (i = 0; i < length; i++) {
+      pass += sym.charAt(Math.floor(Math.random() * sym.length))
+    }
+    return pass
+  } else if (numberC) {
+    for (i = 0; i < length; i++) {
+      number.charAt(Math.floor(Math.random() * number.length))
+    }
+    return pass
+  }
+
 }
 
+password()
 
-// Write password to the #password input
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
+
 
   passwordText.value = password;
 
