@@ -2,11 +2,11 @@
 let generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  let w = prompt('Please select a number between 12 and 128.')
-  if (w >= 12 || w <= 128) {
+  let w = prompt('Please enter a number between 12 and 128 to generate the length of your password')
+  if (w >= 8 && w <= 128) {
     alert(w)
-
-  } else alert('try again, I need that number between 12 and 128.')
+  }
+  else alert('I need that number to between 12 and 128, try agian.')
 
   length = w
   lower = 'abcdefghijklmnopqrstuvwxyz'
@@ -17,25 +17,25 @@ function generatePassword() {
   let upperC = confirm('do you want upper characters?')
   let lowerC = confirm('Do you want lower characters?')
   let numberC = confirm('do you want numbers?')
-  let symC = confirm('do you want symbols?')
-  if (upperC && lowerC && numberC && symC) {
+  let symbolC = confirm('do you want symbols?')
+  if (upperC && lowerC && numberC && symbolC) {
     for (i = 0; i < length / 4; i++) {
-      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length)) + number.charAt(Math.floor(Math.random() * number.length)) + sym.charAt(Math.floor(Math.random() * sym.length))
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length)) + number.charAt(Math.floor(Math.random() * number.length)) + symbol.charAt(Math.floor(Math.random() * symbol.length))
     }
     return pass
-  } else if (lowerC && upperC && symC) {
+  } else if (lowerC && upperC && symbolC) {
     for (i = 0; i < length / 3; i++) {
-      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length)) + sym.charAt(Math.floor(Math.random() * sym.length))
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length)) + symbol.charAt(Math.floor(Math.random() * symbol.length))
     }
     return pass
-  } else if (upperC && symC && numberC) {
+  } else if (upperC && symbolC && numberC) {
     for (i = 0; i < length / 3; i++) {
-      pass += upper.charAt(Math.floor(Math.random() * upper.length)) + sym.charAt(Math.floor(Math.random() * sym.length)) + number.charAt(Math.floor(Math.random() * number.length))
+      pass += upper.charAt(Math.floor(Math.random() * upper.length)) + symbol.charAt(Math.floor(Math.random() * symbol.length)) + number.charAt(Math.floor(Math.random() * number.length))
     }
     return pass
-  } else if (lowerC && symC && numberC) {
+  } else if (lowerC && symbolC && numberC) {
     for (i = 0; i < length / 3; i++) {
-      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + sym.charAt(Math.floor(Math.random() * sym.length)) + number.charAt(Math.floor(Math.random() * number.length))
+      pass += lower.charAt(Math.floor(Math.random() * lower.length)) + symbol.charAt(Math.floor(Math.random() * symbol.length)) + number.charAt(Math.floor(Math.random() * number.length))
     }
     return pass
   } else if (lowerC && upperC && numberC) {
@@ -43,14 +43,14 @@ function generatePassword() {
       pass += lower.charAt(Math.floor(Math.random() * lower.length)) + upper.charAt(Math.floor(Math.random() * upper.length)) + number.charAt(Math.floor(Math.random() * number.length))
     }
     return pass
-  } else if (upperC && symC) {
+  } else if (upperC && symbolC) {
     for (i = 0; i < length / 2; i++) {
-      pass += upper.charAt(Math.floor(Math.random() * upper.length)) + sym.charAt(Math.floor(Math.random() * sym.length))
+      pass += upper.charAt(Math.floor(Math.random() * upper.length)) + symbol.charAt(Math.floor(Math.random() * symbol.length))
     }
     return pass
-  } else if (symC && numberC) {
+  } else if (symbolC && numberC) {
     for (i = 0; i < length / 2; i++) {
-      pass += sym.charAt(Math.floor(Math.random() * sym.length)) + number.charAt(Math.floor(Math.random() * number.length))
+      pass += symbol.charAt(Math.floor(Math.random() * symbol.length)) + number.charAt(Math.floor(Math.random() * number.length))
     }
     return pass
   } else if (lowerC && numberC) {
@@ -73,9 +73,9 @@ function generatePassword() {
       pass += lower.charAt(Math.floor(Math.random() * lower.length))
     }
     return pass
-  } else if (symC) {
+  } else if (symbolC) {
     for (i = 0; i < length; i++) {
-      pass += sym.charAt(Math.floor(Math.random() * sym.length))
+      pass += symbol.charAt(Math.floor(Math.random() * symbol.length))
     }
     return pass
   } else if (numberC) {
@@ -88,7 +88,6 @@ function generatePassword() {
 }
 
 password()
-
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
