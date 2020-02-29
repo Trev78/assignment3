@@ -2,11 +2,11 @@
 let generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
-  let w = prompt('Please enter a number between 12 and 128 to generate the length of your password')
+  let w = prompt('Please enter a number between 8 and 128 to generate the length of your password')
   if (w >= 8 && w <= 128) {
     alert(w)
   }
-  else alert('I need that number to between 12 and 128, try agian.')
+  else alert('I need that number to between 8 and 128, try agian.')
 
   length = w
   lower = 'abcdefghijklmnopqrstuvwxyz'
